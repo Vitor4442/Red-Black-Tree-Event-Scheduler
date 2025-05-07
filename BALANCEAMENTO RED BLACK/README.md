@@ -1,217 +1,95 @@
-Red-Black Tree Event Scheduler
+# Red-Black Tree for Event Management
 
-This Java project implements a Red-Black Tree to manage and schedule events, providing efficient insertion, deletion, and querying of events based on their start times and time ranges. The implementation ensures the tree remains balanced using Red-Black Tree properties, guaranteeing O(log n) time complexity for most operations.
+This project implements a **Red-Black Tree** (a type of self-balancing binary search tree) in Java to manage events based on their start and end times. The system allows adding, removing, and querying events efficiently.
 
-Features
+## Features
 
+- **Add events**: Insert events with a unique ID, start time, end time, and description.
+- **Query events**:
+  - Find events at an exact start time.
+  - Find events within a specified time range.
+- **Remove events**: Remove events based on their start time.
+- **In-order traversal**: Print the events in ascending order of their start time.
 
+## How to Use
 
+### Prerequisites
 
+- Java 8 or higher installed on your machine.
 
-Event Management: Add, remove, and query events with unique IDs, start times, end times, and descriptions.
+### Running the Project
 
+1. Clone the repository to your local machine:
 
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    ```
 
-Red-Black Tree Structure: Maintains balance with red and black nodes to ensure efficient operations.
+2. Navigate to the project directory:
 
+    ```bash
+    cd your-repository
+    ```
 
+3. Compile and run the `Main.java` file:
 
-Queries:
+    ```bash
+    javac Main.java
+    java Main
+    ```
 
+### Example Usage
 
+When you run the program, it will:
 
+1. Add events to the Red-Black tree.
+2. Print the events in ascending order by start time.
+3. Query events at a specific time (e.g., time 10).
+4. Query events within a time range (e.g., between times 10 and 16).
+5. Remove an event by its start time.
+6. Print the updated event list.
 
+### Sample Output
 
-Find events at a specific time.
+Events in Order:
+ID: 3, description: Evento 3, Start: 8, End: 10, Color: Black
+ID: 1, description: Evento 1, Start: 10, End: 12, Color: Red
+ID: 5, description: Evento 5, Start: 12, End: 14, Color: Red
+ID: 2, description: Evento 2, Start: 14, End: 16, Color: Black
+ID: 4, description: Evento 4, Start: 16, End: 18, Color: Black
 
+Events at time 10:
+ID: 1, description: Evento 1, Start: 10, End: 12
 
+Events between 10 and 16:
+ID: 1, description: Evento 1, Start: 10, End: 12
+ID: 5, description: Evento 5, Start: 12, End: 14
+ID: 2, description: Evento 2, Start: 14, End: 16
 
-Find events within a given time range.
+Removing event starting at time 10:
+Event with start time 10 removed.
 
+Events after removal:
+ID: 3, description: Evento 3, Start: 8, End: 10, Color: Black
+ID: 5, description: Evento 5, Start: 12, End: 14, Color: Red
+ID: 2, description: Evento 2, Start: 14, End: 16, Color: Black
+ID: 4, description: Evento 4, Start: 16, End: 18, Color: Black
 
 
-Print all events in-order (sorted by event ID).
+## How the Red-Black Tree Works
 
+- The Red-Black tree is a balanced binary search tree with additional properties that maintain balance during insertion and deletion. The tree automatically adjusts its structure using rotations and color changes to ensure that it remains balanced, which guarantees O(log n) time complexity for most operations.
+  
+- **Key properties of the Red-Black Tree**:
+  - Every node is either red or black.
+  - The root is always black.
+  - Red nodes cannot have red children.
+  - Every path from a node to its descendants contains the same number of black nodes.
 
+## Contributing
 
-Operations:
+Feel free to fork this project and create pull requests. If you have any questions or suggestions, open an issue, and I'll be happy to assist.
 
+## License
 
-
-
-
-Insertion with automatic balancing.
-
-
-
-Deletion with proper tree rebalancing.
-
-
-
-In-order traversal for displaying events.
-
-Project Structure
-
-The project consists of the following Java classes:
-
-
-
-
-
-Evento.java: Represents an event with properties like event_id, start_time, end_time, and description.
-
-
-
-RedBlackNode.java: Defines a node in the Red-Black Tree, including methods for insertion, deletion, balancing, and querying.
-
-
-
-Btree.java: Manages the Red-Black Tree, providing a high-level interface for adding, removing, and querying events.
-
-
-
-Main.java: Contains the main method with example usage of the Red-Black Tree for event scheduling.
-
-Prerequisites
-
-
-
-
-
-Java Development Kit (JDK) 8 or higher.
-
-
-
-A Java IDE (e.g., IntelliJ IDEA, Eclipse) or a command-line environment to compile and run the code.
-
-How to Run
-
-
-
-
-
-Clone the repository:
-
-git clone <repository-url>
-
-
-
-Navigate to the project directory:
-
-cd <project-directory>
-
-
-
-Compile the Java files:
-
-javac *.java
-
-
-
-Run the main class:
-
-java Main
-
-The Main.java file includes a sample program that:
-
-
-
-
-
-Adds five events to the tree.
-
-
-
-Prints events in-order.
-
-
-
-Queries events at a specific time (e.g., 10).
-
-
-
-Queries events within a time range (e.g., 10 to 16).
-
-
-
-Removes an event by start time and prints the updated tree.
-
-Example Output
-
-Running Main.java produces output similar to:
-
-Eventos em Ordem:
-ID: 1, descrição: Evento 1, Inicio: 10, Fim: 12, Cor: Preto
-ID: 2, descrição: Evento 2, Inicio: 14, Fim: 16, Cor: Vermelho
-ID: 3, descrição: Evento 3, Inicio: 8, Fim: 10, Cor: Preto
-ID: 4, descrição: Evento 4, Inicio: 16, Fim: 18, Cor: Vermelho
-ID: 5, descrição: Evento 5, Inicio: 12, Fim: 14, Cor: Preto
-
-Eventos no horário 10:
-ID: 1, descrição: Evento 1, Inicio: 10, Fim: 12
-
-Eventos entre 10 e 16:
-ID: 1, descrição: Evento 1, Inicio: 10, Fim: 12
-ID: 2, descrição: Evento 2, Inicio: 14, Fim: 16
-ID: 5, descrição: Evento 5, Inicio: 12, Fim: 14
-
-Removendo evento com início em 10:
-
-Eventos após remoção:
-ID: 2, descrição: Evento 2, Inicio: 14, Fim: 16, Cor: Vermelho
-ID: 3, descrição: Evento 3, Inicio: 8, Fim: 10, Cor: Preto
-ID: 4, descrição: Evento 4, Inicio: 16, Fim: 18, Cor: Vermelho
-ID: 5, descrição: Evento 5, Inicio: 12, Fim: 14, Cor: Preto
-
-Usage
-
-To use the Red-Black Tree for your own event scheduling:
-
-
-
-
-
-Create Evento objects with the desired event_id, start_time, end_time, and description.
-
-
-
-Instantiate a Btree object.
-
-
-
-Use the addEvent, removeEvent, findEventsAtTime, or findEventsInRange methods to manage and query events.
-
-
-
-Use printInorder to display all events in sorted order.
-
-Example:
-
-Btree b = new Btree();
-b.addEvent(new Evento(1, 10, 12, "Meeting"));
-b.findEventsAtTime(10);
-b.printInorder();
-
-Notes
-
-
-
-
-
-The tree is sorted by event_id, but queries are based on start_time and end_time.
-
-
-
-The Red-Black Tree ensures balanced operations, but the findEventsAtTime and findEventsInRange methods may traverse multiple nodes, depending on the data.
-
-
-
-The implementation assumes unique event_id values for simplicity.
-
-Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue for any bugs, improvements, or feature requests.
-
-License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
